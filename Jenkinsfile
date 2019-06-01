@@ -16,8 +16,6 @@ pipeline {
             steps {
                 sh """
                 docker service update \
-                --publish-add published=9200,target=9200 \
-                --publish-add published=9300,target=9300 \
                 --env-add discovery.type=single-node \
                 --replicas 1 \
                 --update-delay 10s \
@@ -33,8 +31,6 @@ pipeline {
             steps {
                 sh """
                 docker service update \
-                --publish-add published=9200,target=9200 \
-                --publish-add published=9300,target=9300 \
                 --env-add discovery.type=single-node \
                 --replicas 1 \
                 --update-delay 10s \
