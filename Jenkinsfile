@@ -21,7 +21,6 @@ pipeline {
                 --update-delay 10s \
                 --env-add BUILD_NUMBER=${env.BUILD_NUMBER} \
                 --env-add EXECUTE_SPACE=test \
-                --publish-add published=80,target=9200 \
                 --image ${env.SWARM_SERVICE_NAME}:${env.GIT_COMMIT} \
                 test_${env.SWARM_SERVICE_NAME}
                 """
@@ -37,7 +36,6 @@ pipeline {
                 --update-delay 10s \
                 --env-add BUILD_NUMBER=${env.BUILD_NUMBER} \
                 --env-add EXECUTE_SPACE=prod \
-                --publish-add published=80,target=9200 \
                 --image ${env.SWARM_SERVICE_NAME}:${env.GIT_COMMIT} \
                 prod_${env.SWARM_SERVICE_NAME}
                 """
